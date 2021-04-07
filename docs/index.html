@@ -1,0 +1,467 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-edgarnegrin</title>
+	<meta name="description" content="Documentation for ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-edgarnegrin">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-edgarnegrin</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>ull-esit-inf-dsi-20-21-prct04-arrays-tuples-enums-edgarnegrin</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#introducción" id="introducción" style="color: inherit; text-decoration: none;">
+					<h1>Introducción</h1>
+				</a>
+				<p>En esta práctica continuaremos utilizando el lenguaje TypeScript para profundizar en sus funcionalidades y diferentes opciones que permite el lenguaje. Esta práctica esta formada por 8 ejercicios que se deberán resolver utilizando lo aprendido en los apuntes de la asignatura y las clases.</p>
+				<a href="#objetivos" id="objetivos" style="color: inherit; text-decoration: none;">
+					<h1>Objetivos</h1>
+				</a>
+				<p>Los principales objetivos de esta practica son:</p>
+				<ul>
+					<li>Manejo del tipo de datos <strong>arrays</strong>.</li>
+					<li>Manejo del tipo de datos <strong>tuplas</strong>.</li>
+					<li>Manejo del tipo de datos <strong>enumerados</strong>.</li>
+				</ul>
+				<p>Además de los puntos nombrados, se deberá seguir teniendo encuenta lo aprendido en las prácticas anteriores.</p>
+				<a href="#estructura-del-proyecto" id="estructura-del-proyecto" style="color: inherit; text-decoration: none;">
+					<h1>Estructura del proyecto</h1>
+				</a>
+				<p>Se ha comenzado la práctica creando la estructura del proyecto como se ha aprendido en las practicas anteriores. Siguiento el <a href="https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html">tutorial</a> que se nos ha proporcionado. Para cada ejercicio se ha creado un nuevo fichero de código fuente y uno donde se encuentran diversos test. </p>
+				<p>Para ejecutar los test solo es necesario ejecutar <code>npm test</code>.</p>
+				<a href="#ejercicio-1-decodificar-resistencias" id="ejercicio-1-decodificar-resistencias" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 1 (Decodificar resistencias)</h1>
+				</a>
+				<a href="#funcionalidad" id="funcionalidad" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que calcule el valor numérico de una resistencia dependiendo de los colores que tenga esta. Solo se tendrán en cuenta los dos primeros colores.<br>La tabla que se usará es la siguiente:</p>
+				<p>Negro: 0 ; Marrón: 1 ; Rojo: 2 ; Naranja: 3 ; Amarillo: 4 ; Verde: 5 ; Azul: 6 ; Violeta: 7 ; Gris: 8 ; Blanco: 9  </p>
+				<a href="#código" id="código" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para resolver este problema se debe crear una función <strong>decodeResistor</strong> que recibirá como parámetros los colores en formato <em>String</em> y devolverá un <em>Number</em> con el valor de la resistencia. Para permitir más de dos colores añadiremos como último parámetro un array de String que puede ser pasado o no.</p>
+				<p><code>function decodeResistor(res1: string, res2: string, ...res: string[]): number</code></p>
+				<p>Para realizar el calculo del valor de cada color, se ha procedido a crear una variable de tipo String que almacena los colores por valor, por lo que cada color estara en la posición del array del calor que tenga. Para evitar errores vamos a pasar a minúscula los parametros de entrada.  </p>
+				<p><code>const codigos: string[] = [&#39;negro&#39;, &#39;marron&#39;, &#39;rojo&#39;, &#39;naranja&#39;, &#39;amarillo&#39;, &#39;verde&#39;, &#39;azul&#39;, &#39;violeta&#39;, &#39;gris&#39;, &#39;blanco&#39;];</code></p>
+				<p>Teniendo el array que tiene la tabla de colores solo debemos buscar para el primer color el valor que le corresponde dependiendo del nombre del color e insertar en una variable de tipo String la posición de este en el array (este primer color pertenece a las decenas).</p>
+				<pre><code><span style="color: #001080">codigos</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">element</span><span style="color: #000000"> === </span><span style="color: #001080">res1</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">valor</span><span style="color: #000000"> += </span><span style="color: #267F99">String</span><span style="color: #000000">(</span><span style="color: #001080">index</span><span style="color: #000000">);</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Ahora que tenemos el primer color hacemos lo mismo con el segundo para añadir el valor de las unidades.</p>
+				<pre><code><span style="color: #001080">codigos</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">element</span><span style="color: #000000"> === </span><span style="color: #001080">res2</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">valor</span><span style="color: #000000"> += </span><span style="color: #267F99">String</span><span style="color: #000000">(</span><span style="color: #001080">index</span><span style="color: #000000">);</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Solo queda tranformar el resultado a Number y devolverlo. <code>return Number(valor)</code>.</p>
+				<a href="#ejercicio-2-palabras-encadenadas" id="ejercicio-2-palabras-encadenadas" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 2 (Palabras encadenadas)</h1>
+				</a>
+				<a href="#funcionalidad-1" id="funcionalidad-1" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que compruebe si un conjunto de palabras estan encadenadas, esto es si una o más letras del final de una cadena coinciden con el comienzo de la siguiente.</p>
+				<a href="#código-1" id="código-1" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para resolver este problema crearemos una función <strong>meshArray</strong>, la cual recibirá como parámetro un array de <em>String</em> que contiene las palabas que se desea analizar y devolverá un <em>String</em> con los caracteres que son encadenados o en caso de no serlo devolverá &#39;Error al encadenar&#39;.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">meshArray</span><span style="color: #000000">(</span><span style="color: #001080">cadenas</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">[]): </span><span style="color: #267F99">string</span>
+</code></pre>
+				<p>Comenzaremos creando una variable de tipo <em>String</em> inicializada a cadena vacía que contendra la solución y una tipo <em>Number</em> para usarla como índice al recorrer las palabras. Se creará un bucle que recorra las palabras del array de entrada, donde almacenaremos la palabra actual y la siguiente a esa, además del índice final de la palabra actual y el inicial de la siguiente palabra.</p>
+				<pre><code><span style="color: #AF00DB">for</span><span style="color: #000000"> (</span><span style="color: #001080">i</span><span style="color: #000000"> = </span><span style="color: #098658">0</span><span style="color: #000000">; </span><span style="color: #001080">i</span><span style="color: #000000"> &lt; </span><span style="color: #001080">cadenas</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> - </span><span style="color: #098658">1</span><span style="color: #000000">; </span><span style="color: #001080">i</span><span style="color: #000000">++) {</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">palabraAct</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> = </span><span style="color: #001080">cadenas</span><span style="color: #000000">[</span><span style="color: #001080">i</span><span style="color: #000000">];</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">palabraNext</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> = </span><span style="color: #001080">cadenas</span><span style="color: #000000">[</span><span style="color: #001080">i</span><span style="color: #000000"> + </span><span style="color: #098658">1</span><span style="color: #000000">]</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">indiceAct</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #001080">palabraAct</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> - </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">indiceNext</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #098658">0</span><span style="color: #000000">;</span>
+</code></pre>
+				<p>Haciendo uso de los índices de la palabras, vamos comprobando si no existen caracteres iguales entre la primera palabra y el primer caracter de la siguiente palabra para ir decrementando el índice de la palabra actual. En caso de terminar de recorrer la palabra actual y no encontrar ningun caracter igual, devolveremos la cadena de <em>error</em>.</p>
+				<pre><code><span style="color: #AF00DB">while</span><span style="color: #000000"> (</span><span style="color: #001080">palabraAct</span><span style="color: #000000">[</span><span style="color: #001080">indiceAct</span><span style="color: #000000">] != </span><span style="color: #001080">palabraNext</span><span style="color: #000000">[</span><span style="color: #001080">indiceNext</span><span style="color: #000000">]) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">indiceAct</span><span style="color: #000000">--;</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">indiceAct</span><span style="color: #000000"> &lt; </span><span style="color: #098658">0</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;Error al encadenar&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Una vez encontremos el caracter que coincida, recorreremos desde ese caracter hasta el final de la palabra actual comprobando que para la siguiente palabra tambien va existiendo un caracter igual. En caso de que sea igual, lo almacenamos en la solución e incrementamos el índice de la siguiente palabra para comprobar las restantes. En el supuesto de que no concuerden los caracteres se devolvera la cadena de <em>error</em>.</p>
+				<pre><code><span style="color: #AF00DB">for</span><span style="color: #000000"> (</span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">j</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #001080">indiceAct</span><span style="color: #000000">; </span><span style="color: #001080">j</span><span style="color: #000000"> &lt; </span><span style="color: #001080">palabraAct</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000">; </span><span style="color: #001080">j</span><span style="color: #000000">++) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">palabraAct</span><span style="color: #000000">[</span><span style="color: #001080">j</span><span style="color: #000000">] == </span><span style="color: #001080">palabraNext</span><span style="color: #000000">[</span><span style="color: #001080">indiceNext</span><span style="color: #000000">]) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">sol</span><span style="color: #000000"> += </span><span style="color: #001080">palabraAct</span><span style="color: #000000">[</span><span style="color: #001080">j</span><span style="color: #000000">];</span>
+<span style="color: #000000">    </span><span style="color: #001080">indiceNext</span><span style="color: #000000">++;</span>
+</code></pre>
+				<p>Por último se devulve la cadena con la solución <code>return sol</code>.</p>
+				<a href="#ejercicio-3-calcular-la-media-y-concatenar-cadenas" id="ejercicio-3-calcular-la-media-y-concatenar-cadenas" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 3 (Calcular la media y concatenar cadenas)</h1>
+				</a>
+				<a href="#funcionalidad-2" id="funcionalidad-2" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que calcule la media de los valores numéricos y concatene los caracteres de un array. El resultado será un array con las dos soluciones.</p>
+				<a href="#código-2" id="código-2" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para resolver este problema se creará una función <strong>meanAndConcatenate</strong> que recibirá como parámetro un array con los valores numéricos y caracteres que se desean operar del tipo <em>String</em> o <em>Number</em> y devolverá un array con un <em>String</em> y un <em>Number</em>.</p>
+				<p><code>function meanAndConcatenate(cadena: (string | number)[]): (string | number)[]</code></p>
+				<p>Necesitaremos dos variables para almacenar cada resultado, la de tipo String la inicializaremos con una cadena vacia y el tipo Number a 0.
+				Para hacer operar correctamente lo que debemos hacer es recorrer el array de entrada y dependiendo de que tipo de dato sea se opera de diferente forma, en caso de que sea String se añade a la variable String y en caso contrario será Number por lo que se sumará al valor anterior y se incrementara en 1 un contador para conocer la cantidad de numeros que se estan procesando.</p>
+				<pre><code><span style="color: #001080">cadena</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #0000FF">typeof</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000">) === </span><span style="color: #A31515">&#039;string&#039;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">resultadoCadena</span><span style="color: #000000"> += </span><span style="color: #001080">element</span><span style="color: #000000">;</span>
+<span style="color: #000000">  } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">resultadoNumber</span><span style="color: #000000"> += </span><span style="color: #001080">element</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #001080">i</span><span style="color: #000000">++;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Una vez se ha recorrido todo el array solo queda devolver el resultado como un array donde la primera posición devuelve la cadena concatenada y la segunda posición devuelve la división entre el resultado de la suma de valores y el contador, esto calculará la media de los valores <code>return [resultadoCadena, resultadoNumber / i]</code>.</p>
+				<a href="#ejercicio-4-mover-los-ceros-al-final" id="ejercicio-4-mover-los-ceros-al-final" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 4 (Mover los ceros al final)</h1>
+				</a>
+				<a href="#funcionalidad-3" id="funcionalidad-3" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que envie todos los ceros de un array al final de este manteniendo el orden de los demás elementos.</p>
+				<a href="#código-3" id="código-3" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para resolver este problema se debe crear una función <strong>moveZeros</strong> que reciba como parametro un array de tipo <em>Number</em> con los números que se desean ordenar y devolvera un array de tipo <em>Number</em> con el array ordenado como se requiere.</p>
+				<p><code>function moveZeros(cadena: number[]): number[]</code></p>
+				<p>Primero debemos recorrer el array elemento a elemento, en caso de que no sea 0 no hacemos ninguna operación e incrementamos el índice, pero en caso de si ser 0 lo extraemos del array utilizando el índice e incrementamos la variable que almacena el número de ceros que nos encontramos, no incrementamos el índice ya que al eliminar un elemento ya estamos posicionados en el siguiente.</p>
+				<pre><code><span style="color: #AF00DB">while</span><span style="color: #000000"> (</span><span style="color: #001080">i</span><span style="color: #000000"> &lt; </span><span style="color: #001080">cadena</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">cadena</span><span style="color: #000000">[</span><span style="color: #001080">i</span><span style="color: #000000">] === </span><span style="color: #098658">0</span><span style="color: #000000">) {</span>
+<span style="color: #000000">    </span><span style="color: #001080">cadena</span><span style="color: #000000">.</span><span style="color: #795E26">splice</span><span style="color: #000000">(</span><span style="color: #001080">i</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">);</span>
+<span style="color: #000000">    </span><span style="color: #001080">numZeros</span><span style="color: #000000">++;</span>
+<span style="color: #000000">  } </span><span style="color: #AF00DB">else</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">i</span><span style="color: #000000">++;</span>
+<span style="color: #000000">  }</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Una vez salimos del bucle ya tenemos eliminados todos los ceros, por lo que haciendo uso del número de ceros que encontrados vamos a introducirlos al final.</p>
+				<pre><code><span style="color: #AF00DB">while</span><span style="color: #000000"> (</span><span style="color: #001080">numZeros</span><span style="color: #000000"> &gt; </span><span style="color: #098658">0</span><span style="color: #000000">) {</span>
+<span style="color: #000000">  </span><span style="color: #001080">cadena</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">);</span>
+<span style="color: #000000">  </span><span style="color: #001080">numZeros</span><span style="color: #000000">--;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Por último se devuelve el array modificado <code>return cadena</code>.</p>
+				<a href="#ejercicio-5-factoría-de-multiplicaciones" id="ejercicio-5-factoría-de-multiplicaciones" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 5 (Factoría de multiplicaciones)</h1>
+				</a>
+				<a href="#funcionalidad-4" id="funcionalidad-4" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere realizar un programa que realice la multiplicación de un array por un valor.</p>
+				<a href="#código-4" id="código-4" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para realizar este problema se debe crear una función <strong>multiplyAll</strong> que reciba como parámetro un array de <em>Number</em> con el multiplicando y devolver una función que tiene como parámetro un valor numérico y devuelve el nuevo array con la operación realizada.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">multiplyAll</span><span style="color: #000000">(</span><span style="color: #001080">multiplicando</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">[]): (</span><span style="color: #001080">multiplicador</span><span style="color: #000000">?: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">number</span><span style="color: #000000">[]</span>
+</code></pre>
+				<p>Lo primero que crearemos será una variable de tipo array de Number donde almacenaremos la solución, seguidamente se devolvera la funcion que realiza el calculo con el parametro de entrada.</p>
+				<pre><code><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">multiply</span><span style="color: #000000">(</span><span style="color: #001080">multiplicador</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #098658">1</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000">[]</span>
+</code></pre>
+				<p>En esta segunda función debemos recorrer todos los elementos del array de entrada, multiplicar cada elemento por el valor que recibió esta segunda función y almacenarlo en la variable que habiamos creado anteriormente.</p>
+				<pre><code><span style="color: #001080">multiplicando</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">sol</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000"> * </span><span style="color: #001080">multiplicador</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Por último retornaremos el array con la solucion <code>return sol</code>, lo que terminará las dos funciones.</p>
+				<a href="#ejercicio-6-puntos-bi-dimensionales" id="ejercicio-6-puntos-bi-dimensionales" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 6 (Puntos bi-dimensionales)</h1>
+				</a>
+				<a href="#funcionalidad-5" id="funcionalidad-5" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que permita representar un sistema de dos coordenadas (x, y), en este se deben poder realizar las operaciones:</p>
+				<ul>
+					<li>Suma y Resta</li>
+					<li>Producto de un punto por un número</li>
+					<li>Distancia euclidea</li>
+				</ul>
+				<a href="#código-5" id="código-5" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<ul>
+					<li>Sistema de dos coordenadas</li>
+				</ul>
+				<p>Para representar un punto se ha creado un tipo de dato que esta compuesto por dos <em>Number</em>, uno para la coordenada &#39;x&#39; y otro para la coordenada &#39;y&#39;.</p>
+				<pre><code><span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [x: </span><span style="color: #267F99">number</span><span style="color: #000000">, y: </span><span style="color: #267F99">number</span><span style="color: #000000">]</span>
+</code></pre>
+				<ul>
+					<li>Suma y Resta</li>
+				</ul>
+				<p>Para resolver este problema debemos crear la función <strong>add</strong> que recibe como parámetro dos puntos y devuelve el resultado como otro punto.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">, </span><span style="color: #001080">puntoB</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">): </span><span style="color: #267F99">punto</span>
+</code></pre>
+				<p>Ahora debemos crear una variable tipo <em>punto</em> para almacenar el resultado, en esta almacenaremos en la primera posicion la suma de los valores de &#39;x&#39; de los puntos y para la segunda posición almacenaremos la suma de los valores de &#39;y&#39;.</p>
+				<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">puntoC</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [</span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] + </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] + </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]]</span>
+</code></pre>
+				<p>Por último devolvemos el punto que almacena el resultado <code>return puntoC</code>.
+				Para la operación de la resta se crea otra función <strong>substract</strong> y se realiza de la misma manera, solo es necesario cambiar la operación &#39;+&#39; por &#39;-&#39;.</p>
+				<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">puntoC</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [</span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] - </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] - </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]]</span>
+</code></pre>
+				<ul>
+					<li>Producto de un punto por un número</li>
+				</ul>
+				<p>Para resolverlo se debe crear una función <strong>multiply</strong> que recibe como parámetro un <em>punto</em> y un <em>Number</em>, devolviendo como resultado un <em>punto</em>.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">multiply</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">, </span><span style="color: #001080">multiplicador</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">): </span><span style="color: #267F99">punto</span>
+</code></pre>
+				<p>Primero debemos crear una variable tipo <em>punto</em> donde almacenaremos el resultado, la primera posición(&#39;x&#39;) de esta correspondrá con la multiplicación de la primera posición(&#39;x&#39;) del punto recibido y el número a multiplicar, la segunda posición(&#39;y&#39;) correspondrá con la multiplicación de la segunda posición del punto recibido por el número a multiplicar.</p>
+				<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">puntoB</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [</span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] * </span><span style="color: #001080">multiplicador</span><span style="color: #000000">, </span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] * </span><span style="color: #001080">multiplicador</span><span style="color: #000000">]</span>
+</code></pre>
+				<p>Por último devolvemos el punto que tiene el resultado <code>return puntoB</code>.</p>
+				<ul>
+					<li>Distancia euclidea</li>
+				</ul>
+				<p>Para resolverlo se debe crear una función <strong>euclidean</strong> que recibe como parámetros dos <em>puntos</em> con los que se realizará el calculo y devolverá un <em>Number</em> con el resultado.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">euclidean</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">, </span><span style="color: #001080">puntoB</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">): </span><span style="color: #267F99">number</span>
+</code></pre>
+				<p>Creamos una variable que almecene el resultado, que será la raíz cuadrada de la solución de el cuadrado de la resta de la primera posición(&#39;x&#39;) del segundo punto y la primera posición(&#39;x&#39;) del primer punto, sumado a el cuadrado de la resta de la segunda posición(&#39;y&#39;) del segundo punto y la segunda posición(&#39;y&#39;) del primer punto. Para estor calculor usaremos <em>sqrt</em> para la raíz y <em>pow</em> para el cuadrado.</p>
+				<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">sol</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">sqrt</span><span style="color: #000000">(</span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">pow</span><span style="color: #000000">(</span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] - </span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #098658">2</span><span style="color: #000000">) + </span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">pow</span><span style="color: #000000">(</span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] - </span><span style="color: #001080">puntoA</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">], </span><span style="color: #098658">2</span><span style="color: #000000">))</span>
+</code></pre>
+				<p>Por último solo queda devolver el resultado <code>return sol</code>.</p>
+				<a href="#ejercicio-7" id="ejercicio-7" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 7</h1>
+				</a>
+				<a href="#funcionalidad-6" id="funcionalidad-6" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere un programa que permita representar un sistema de 3 o mas dimensiones (x, y, z, ...). En este se deben poder realizar las operaciones:</p>
+				<ul>
+					<li>Suma y resta (Deben tener las mismas dimensiones)</li>
+					<li>Producto de un punto por un número</li>
+					<li>Distancia euclídea (Deben tener las mismas dimensiones)</li>
+				</ul>
+				<a href="#código-6" id="código-6" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<ul>
+					<li>Sistema de tres o mas dimensiones</li>
+				</ul>
+				<p>Para representar un punto se ha creado un tipo de dato que esta compuesto por tres o más <em>Number</em>, para permitir que sean 3 o más se establecen 3 <em>Number</em> que deben estar siempre y un último valor que puede estar o no del tipo array de <em>Number</em>.</p>
+				<pre><code><span style="color: #0000FF">type</span><span style="color: #000000"> </span><span style="color: #267F99">puntoMult</span><span style="color: #000000"> = [x: </span><span style="color: #267F99">number</span><span style="color: #000000">, y: </span><span style="color: #267F99">number</span><span style="color: #000000">, z: </span><span style="color: #267F99">number</span><span style="color: #000000">, ...dim: </span><span style="color: #267F99">number</span><span style="color: #000000">[]]</span>
+</code></pre>
+				<ul>
+					<li>Suma y resta</li>
+				</ul>
+				<p>Para resolver este problema debemos crear la función <strong>add</strong> que recibe como parámetro dos puntos del tipo <em>puntoMult</em> y devuelve el resultado como otro punto del tipo <em>puntoMult</em> de las mismas dimensiones o un undefined en caso de que no concuerden las dimensiones de los puntos.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">puntoMult</span><span style="color: #000000">, </span><span style="color: #001080">puntoB</span><span style="color: #000000">: </span><span style="color: #267F99">puntoMult</span><span style="color: #000000">): </span><span style="color: #267F99">puntoMult</span><span style="color: #000000"> | </span><span style="color: #267F99">undefined</span>
+</code></pre>
+				<p>Comprobamos que el número de dimensiones de los dos puntos es el mismo para poder operar, en caso contrario se devulve <em>undefined</em>.</p>
+				<pre><code><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> === </span><span style="color: #001080">puntoB</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000">)</span>
+</code></pre>
+				<p>Creamos una variable donde almacenaremos el punto resultante, pero esta no será del tipo <em>puntoMult</em>, sino que será un array de <em>Number</em>, hacemos esto para no preocuparnos por las dimensiones. Para realizar la operación sobre cada coordenada debemos recorrer las coordenadas de uno de los puntos y sumarle la coordenada en la que se encuentre con la coordenada del otro punto con el mismo índice.</p>
+				<pre><code><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">puntoC</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000"> + </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #001080">index</span><span style="color: #000000">]);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Esto almacena en un array el resultado ordenado, solo debemos devolver el resultado como un tipo <em>puntoMult</em> <code>return puntoC as puntoMult</code>.
+				Para la operación de la resta se crea otra función <strong>substract</strong> igual que la suma, pero en vez de realizar la suma de las coordenadas lo sustituimos por una resta.</p>
+				<pre><code><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">puntoC</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000"> - </span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #001080">index</span><span style="color: #000000">]);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<ul>
+					<li>Producto de un punto por un número</li>
+				</ul>
+				<p>Para resolverlo se debe crear una función <strong>multiply</strong> que recibe como parámetro un <em>puntoMult</em> y un <em>Number</em>, devolviendo como resultado un nuevo <em>puntoMult</em>.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">multiply</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">puntoMult</span><span style="color: #000000">, </span><span style="color: #001080">multiplicador</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">): </span><span style="color: #267F99">puntoMult</span>
+</code></pre>
+				<p>Primero debemos crear una variable tipo array de <em>Number</em> para no tener en cuenta las dimensiones donde almacenaremos el resultado. Para realizar la operación debemos recorrer todas las coordenadas que tenga el punto y multiplicarlas por el numbero, almacenandolo en la variable creada para ello.</p>
+				<pre><code><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">puntoB</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #001080">element</span><span style="color: #000000"> * </span><span style="color: #001080">multiplicador</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Por último devolvemos el array que tiene el resultado pero como tipo de dato <em>puntoMult</em> <code>return puntoB as puntoMult</code>.</p>
+				<ul>
+					<li>Distancia euclídea</li>
+				</ul>
+				<p>Para resolverlo se debe crear una función <strong>euclidean</strong> que recibe como parámetros dos <em>puntosMult</em> con los que se realizará el calculo y devolverá un <em>Number</em> con el resultado o un undefined en caso de que no se pueda realizar el calculo.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">euclidean</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">puntoMult</span><span style="color: #000000">, </span><span style="color: #001080">puntoB</span><span style="color: #000000">: </span><span style="color: #267F99">puntoMult</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> | </span><span style="color: #267F99">undefined</span>
+</code></pre>
+				<p>Debemos comprobar que los dos puntos tienen las mismas dimensiones, en caso de ser así continuamos con el calculo, en cualquier otro caso devolvemos <em>undefined</em>.</p>
+				<pre><code><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> === </span><span style="color: #001080">puntoB</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000">)</span>
+</code></pre>
+				<p>Creamos una variable tipo number que almecene el resultado, en esta añadiremos para cada elemento del primer punto el resultado del cuadrado de la resta de la coordenada actual que concuerde con el índice del segundo punto y la coordenada actual del primer punto (Usaremos <em>pow</em> para el cuadrado).</p>
+				<pre><code><span style="color: #001080">puntoA</span><span style="color: #000000">.</span><span style="color: #795E26">forEach</span><span style="color: #000000">((</span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">sol</span><span style="color: #000000"> += </span><span style="color: #267F99">Math</span><span style="color: #000000">.</span><span style="color: #795E26">pow</span><span style="color: #000000">(</span><span style="color: #001080">puntoB</span><span style="color: #000000">[</span><span style="color: #001080">index</span><span style="color: #000000">] - </span><span style="color: #001080">element</span><span style="color: #000000">, </span><span style="color: #098658">2</span><span style="color: #000000">);</span>
+<span style="color: #000000">});</span>
+</code></pre>
+				<p>Por último solo queda devolver la raíz cuadrada del resultado <code>return Math.sqrt(sol)</code>.</p>
+				<a href="#ejercicio-8" id="ejercicio-8" style="color: inherit; text-decoration: none;">
+					<h1>Ejercicio 8</h1>
+				</a>
+				<a href="#funcionalidad-7" id="funcionalidad-7" style="color: inherit; text-decoration: none;">
+					<h3>Funcionalidad</h3>
+				</a>
+				<p>Se requiere realizar un programa que teniendo una coordenada de inicio, una de final y un tablero, calcule el camino para llegar al final utilizarndo los movimientos de Norte, Sur, Este y Oeste.</p>
+				<a href="#código-7" id="código-7" style="color: inherit; text-decoration: none;">
+					<h3>Código</h3>
+				</a>
+				<p>Para la realización de este problema será necesario importar del ejercicio 6 el tipo de dato <em>punto</em> y la función <em>euclidean</em> que calcula la distancia euclidea de dos puntos.</p>
+				<pre><code><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">punto</span><span style="color: #000000">, </span><span style="color: #001080">euclidean</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;./ejercicio-6&#039;</span>
+</code></pre>
+				<p>Lo primero que necesitaremos antes de comenzar con la función principal es una que compruebe si todos los datos recibidos son correctos (si se encuentran dentro del tablero). Para ello crearemos una función <strong>inTablero</strong> que recibirá un punto del tipo de dato <em>punto</em>, y dos <em>Number</em> con el numero de filas y columnas del tablero, esta devolverá un <em>Boolean</em> con un True en caso de que este dentro del tablero el punto O un false en caso contrario.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">inTablero</span><span style="color: #000000">(</span><span style="color: #001080">puntoA</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">, </span><span style="color: #001080">filas</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #001080">columnas</span><span style="color: #000000">:</span><span style="color: #267F99">number</span><span style="color: #000000">): </span><span style="color: #267F99">boolean</span>
+</code></pre>
+				<p>Comprobamos que las dos coordenadas estan dentro de los limites del tablero, en caso de no estarlo se devuelve false.</p>
+				<p>Ahora que tenemos un función para comprobar los puntos ya podemos iniciar la función pricipal que calculará el camino <strong>agent</strong>, esta recibirá como parametro las filas y columnas como tipo <em>Number</em> y el punto inicial y final como tipo <em>punto</em>, devolviendo un array de <em>String</em> con el camino de la solución o un undefined en caso de encontrar algún error.</p>
+				<pre><code><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">agent</span><span style="color: #000000">(</span><span style="color: #001080">filas</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #001080">columnas</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #001080">inicialP</span><span style="color: #000000">:</span><span style="color: #267F99">punto</span><span style="color: #000000">, </span><span style="color: #001080">finalP</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000">): </span><span style="color: #267F99">string</span><span style="color: #000000">[] | </span><span style="color: #267F99">undefined</span>
+</code></pre>
+				<p>Debemos comprobar que los puntos que se han pasado estan dentro del tablero que se ha delimitado, por lo que llamamos a la funcion creada anteriormente para comprobar cada punto.</p>
+				<pre><code><span style="color: #AF00DB">if</span><span style="color: #000000"> (!</span><span style="color: #795E26">inTablero</span><span style="color: #000000">(</span><span style="color: #001080">inicialP</span><span style="color: #000000">, </span><span style="color: #001080">filas</span><span style="color: #000000">, </span><span style="color: #001080">columnas</span><span style="color: #000000">) || !</span><span style="color: #795E26">inTablero</span><span style="color: #000000">(</span><span style="color: #001080">finalP</span><span style="color: #000000">, </span><span style="color: #001080">filas</span><span style="color: #000000">, </span><span style="color: #001080">columnas</span><span style="color: #000000">))</span>
+</code></pre>
+				<p>En caso de que no esten dentro del tablero debemos terminar el programa devolviendo undefined, pero en caso de que si se encuentren dentro continuamos creando tres variables, una que almacenará en un array de tipo <em>String</em> el camino, la posición actual de tipo <em>punto</em> iniciada con el punto de inicio y por ultimo una tipo <em>Number</em> donde almacenaremos la distancia euclidea de los movimientos que se van comprobando iniciada con la distancia del punto inicial con el final.</p>
+				<pre><code><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">camino</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">[] = [];</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">posActual</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [...</span><span style="color: #001080">inicialP</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">disActual</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000"> = </span><span style="color: #795E26">euclidean</span><span style="color: #000000">(</span><span style="color: #001080">inicialP</span><span style="color: #000000">, </span><span style="color: #001080">finalP</span><span style="color: #000000">)</span>
+</code></pre>
+				<p>Continuamos creando un bucle que no termine hasta que no se llegue al final (distancia auclidea 0) <code>while (disActual &gt; 0)</code>.
+				Existen 4 posibles movimientos: Norte, Sur, Este y Oeste, cada uno se calcula de una forma.</p>
+				<p>Para calcular el movimiento hacia el norte debemos incrementar en 1 la coordenada &#39;y&#39;</p>
+				<pre><code><span style="color: #000000">[</span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] + </span><span style="color: #098658">1</span><span style="color: #000000">]</span>
+</code></pre>
+				<p>Para calcular el movimiento hacia el sur debemos decrementar en 1 la coordenada &#39;y&#39;</p>
+				<pre><code><span style="color: #001080">posTemp</span><span style="color: #000000"> = [</span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] - </span><span style="color: #098658">1</span><span style="color: #000000">]</span>
+</code></pre>
+				<p>Para calcular el movimiento hacia el este debemos incrementar en 1 la coordenada &#39;x&#39;</p>
+				<pre><code><span style="color: #000000">[</span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] + </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]]</span>
+</code></pre>
+				<p>Para calcular el movimiento hacia el oeste debemos decrementar en 1 la coordenada &#39;x&#39;</p>
+				<pre><code><span style="color: #000000">[</span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">] - </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">]]</span>
+</code></pre>
+				<p>Ahora deberemos ir comprobando para cada movimiento si la posicion en la que te deja el movimiento esta dentro del tablero y si la distancia euclidea a disminuido con respecto a la anterior. Para ello creamos una variable que almacene la posible posición para realizar las comprobaciones.</p>
+				<pre><code><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">posTemp</span><span style="color: #000000">: </span><span style="color: #267F99">punto</span><span style="color: #000000"> = [</span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">0</span><span style="color: #000000">], </span><span style="color: #001080">posActual</span><span style="color: #000000">[</span><span style="color: #098658">1</span><span style="color: #000000">] + </span><span style="color: #098658">1</span><span style="color: #000000">];</span>
+<span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #795E26">inTablero</span><span style="color: #000000">(</span><span style="color: #001080">posTemp</span><span style="color: #000000">, </span><span style="color: #001080">filas</span><span style="color: #000000">, </span><span style="color: #001080">columnas</span><span style="color: #000000">) &amp;&amp; </span><span style="color: #795E26">euclidean</span><span style="color: #000000">(</span><span style="color: #001080">posTemp</span><span style="color: #000000">, </span><span style="color: #001080">finalP</span><span style="color: #000000">) &lt; </span><span style="color: #001080">disActual</span><span style="color: #000000">)</span>
+</code></pre>
+				<p>En caso de que sea valido el movimiento se actualizará la distancia euclídea actual y la posición actual, a parte de introducir en el camino el movimiento que se ha realizado.</p>
+				<pre><code><span style="color: #001080">disActual</span><span style="color: #000000"> = </span><span style="color: #795E26">euclidean</span><span style="color: #000000">(</span><span style="color: #001080">posTemp</span><span style="color: #000000">, </span><span style="color: #001080">finalP</span><span style="color: #000000">);</span>
+<span style="color: #001080">posActual</span><span style="color: #000000"> = [...</span><span style="color: #001080">posTemp</span><span style="color: #000000">];</span>
+<span style="color: #001080">camino</span><span style="color: #000000">.</span><span style="color: #795E26">push</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;North&#039;</span><span style="color: #000000">);</span>
+</code></pre>
+				<p>En caso de que no sea valido el movimiento o no disminuya la distancia euclídea se comprobara el siguiente movimiento. Una vez se encuentra un movimiento valido se repite el proceso hasta que se llegue al final. Solo queda devolver el array de <em>String</em> con el resultado al salir del bucle <code>return camino</code>.</p>
+				<a href="#conclusiones" id="conclusiones" style="color: inherit; text-decoration: none;">
+					<h1>Conclusiones</h1>
+				</a>
+				<p>Con la realización de los ejercicios de esta práctica se ha podido profundizar en las diferentes funcionalidades que tiene los tipos de datos <em>array, tuplas y enumerados</em>, estos a parte de tener muchas formas de implementarlos también tienen la posibilidad de utilidar métodos que facilitan algunas tareas. Todo esto no ayuda a que los programas que vamos realizando esten mejor estructurados y más optimizados. Cada uno de estos tipos de datos tiene diferentes momentos en los que son útiles, eso significa que no siempre hay que hacer uso de ellos ya que podría tener un efecto inverso y complicar el código realizado.</p>
+				<a href="#bibliografía" id="bibliografía" style="color: inherit; text-decoration: none;">
+					<h1>Bibliografía</h1>
+				</a>
+				<ul>
+					<li><a href="https://ull-esit-inf-dsi-2021.github.io/typescript-theory/typescript-project-setup.html">Estructura</a></li>
+					<li><a href="https://www.tutorialspoint.com/typescript/typescript_strings.htm">String</a></li>
+					<li><a href="https://www.tutorialsteacher.com/typescript/typescript-number#:~:text=Just%20like%20JavaScript%2C%20TypeScript%20supports,or%20Octal%20(base%208).&amp;text=let%20third%3Anumber%3D0377%3B,octal%20number%20equivalent%20to%20255.">Number</a></li>
+					<li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math">Math</a></li>
+					<li><a href="https://www.tutorialspoint.com/typescript/typescript_arrays.htm">Array</a></li>
+					<li><a href="https://es.wikipedia.org/wiki/Distancia_euclidiana">Distancia euclídea</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_1.html">ejercicio-<wbr>1</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_2.html">ejercicio-<wbr>2</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_3.html">ejercicio-<wbr>3</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_4.html">ejercicio-<wbr>4</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_5.html">ejercicio-<wbr>5</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_6.html">ejercicio-<wbr>6</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_7.html">ejercicio-<wbr>7</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/ejercicio_8.html">ejercicio-<wbr>8</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
